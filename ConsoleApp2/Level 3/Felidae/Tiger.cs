@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using static System.Math;
 
 namespace ConsoleApp2
 {
@@ -57,6 +58,11 @@ namespace ConsoleApp2
         protected override void SetPic(PictureBox PicBox)
         {
             PicBox.BackgroundImage = Properties.Resources.TigerMainPic;
+        }
+
+        public override ulong NewLvlPrice()
+        {
+            return (ulong)(BaseBuyingPrice * Pow(PriceIncreaseModifier, Lvl));
         }
 
         protected override void AnimalTypeLabelSettings(Label AnimalTypeLabel)

@@ -46,7 +46,7 @@ namespace ConsoleApp2
         #region Lvl
         private int lvl = 1;
         private int MultiplierPerLvl = 1;
-        private int Lvl
+        protected int Lvl
         {
             get
             {
@@ -60,7 +60,7 @@ namespace ConsoleApp2
                 MaxHelth++;     // пересчет максимального здоровья
                 MaxSatiety++;   // пересчет максимальной сытости
 
-                LvlupPrice = NewLvlCost(); // пересчет стоимости повышения уровня
+                LvlupPrice = NewLvlPrice(); // пересчет стоимости повышения уровня
                 CostLvlupLabelUpdate();
                 SetMultiplier();
 
@@ -251,7 +251,7 @@ namespace ConsoleApp2
                 maxSatiety = CalcMaxSatiety();
                 satiety = SatietyFirstValue();
 
-                LvlupPrice = NewLvlCost();
+                LvlupPrice = NewLvlPrice();
             }
             #endregion
         }
@@ -377,10 +377,7 @@ namespace ConsoleApp2
 
         public ulong LvlupPrice;
 
-        public ulong NewLvlCost()
-        {
-            return (ulong)(BuyingPrice * Pow(PriceIncreaseModifier, Lvl));
-        }
+        public abstract ulong NewLvlPrice();
 
         void AddMoneyFromAnimal()
         {
