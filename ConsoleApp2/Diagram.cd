@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ConsoleApp2.Wolf" Collapsed="true">
+    <Position X="7" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACBAQAGAAAAAAgIACIgAABEAAAAAgCAAEAAAAAAAAA=</HashCode>
+      <FileName>Level 3\Canidae\Wolf.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Orientation="Bottom" Position="0.689" />
+  </Class>
+  <Class Name="ConsoleApp2.Raccoon" Collapsed="true">
+    <Position X="9" Y="6.25" Width="1.5" />
+    <InheritanceLine Type="ConsoleApp2.Canidae" FixedFromPoint="true">
+      <Path>
+        <Point X="8.75" Y="5.441" />
+        <Point X="8.75" Y="5.875" />
+        <Point X="9.75" Y="5.875" />
+        <Point X="9.75" Y="6.25" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AACBAQAGAAAAAAgIACIgAABEAAAAAgCAAEAAEAAAAAA=</HashCode>
+      <FileName>Level 3\Canidae\Raccoon.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Orientation="Bottom" Position="0.669" />
+  </Class>
+  <Class Name="ConsoleApp2.Tiger">
+    <Position X="11.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACBAQAGAAAAAAgIACIgAABEAAAAAgCAAEAAAAAAAAA=</HashCode>
+      <FileName>Level 3\Felidae\Tiger.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Orientation="Bottom" Position="0.679" />
+  </Class>
+  <Class Name="ConsoleApp2.Felidae" Collapsed="true">
+    <Position X="12.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Level 2\Felidae.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp2.Canidae" Collapsed="true">
+    <Position X="8" Y="4.75" Width="1.5" />
+    <InheritanceLine Type="ConsoleApp2.Animal" FixedToPoint="true">
+      <Path>
+        <Point X="11" Y="3.562" />
+        <Point X="11" Y="4.375" />
+        <Point X="8.75" Y="4.375" />
+        <Point X="8.75" Y="4.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Level 2\Canidae.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp2.Wildcat" Collapsed="true">
+    <Position X="13.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACBAQAGAAAAAAgIACIgAABEAAAAAgCAAEAAEAAAAAA=</HashCode>
+      <FileName>Level 3\Felidae\Wildcat.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Orientation="Bottom" Position="0.69" />
+  </Class>
+  <Class Name="ConsoleApp2.Program" Collapsed="true">
+    <Position X="0.5" Y="2" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="mainForm" Type="ConsoleApp2.MainForm" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="2" Y="2.284" />
+        <Point X="2.375" Y="2.284" />
+        <Point X="2.375" Y="1.312" />
+        <Point X="2.75" Y="1.312" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.455" Y="-0.282" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="zoo" Type="ConsoleApp2.Zoo" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="2" Y="2.283" />
+        <Point X="2.375" Y="2.283" />
+        <Point X="2.375" Y="3.313" />
+        <Point X="2.75" Y="3.313" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.45" Y="0.133" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAgAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="mainForm" />
+      <Field Name="zoo" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ConsoleApp2.Animal" Collapsed="true">
+    <Position X="10.25" Y="3" Width="1.5" />
+    <AssociationLine Name="Gender" Type="ConsoleApp2.Genders" FixedFromPoint="true">
+      <Path>
+        <Point X="11.75" Y="3.25" />
+        <Point X="12.75" Y="3.25" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>Y0CpTQIuo0EKACiIg2IQJAQFE0VAYGCGocELKyEADwE=</HashCode>
+      <FileName>Level 1\Animal.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="SelectedTab" />
+      <Property Name="Gender" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ConsoleApp2.MainForm" Collapsed="true">
+    <Position X="2.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EACIEAQARGDsDBmNQEOqEIQCADCICiAIJAgqQQAhRCQ=</HashCode>
+      <FileName>MainForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Windows.Forms.TabPage" Collapsed="true">
+    <Position X="7.75" Y="1" Width="1.5" />
+    <NestedTypes>
+      <Class Name="System.Windows.Forms.TabPage.TabPageControlCollection" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier />
+  </Class>
+  <Class Name="System.Windows.Forms.TabControl" Collapsed="true">
+    <Position X="5.25" Y="1" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+      <Compartment Name="Events" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="TabPages" Type="System.Windows.Forms.TabPage">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.264" Y="0.038" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier />
+    <ShowAsCollectionAssociation>
+      <Property Name="TabPages" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ConsoleApp2.Zoo" Collapsed="true">
+    <Position X="2.75" Y="3" Width="1.5" />
+    <AssociationLine Name="MainFormRef" Type="ConsoleApp2.MainForm">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.924" Y="0.608" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAA4QAAAgEAABIAAEAAAAAAGBAACIIgEJAAAAQCAHAA=</HashCode>
+      <FileName>Zoo.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="MainFormRef" />
+      <Field Name="Cages" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ConsoleApp2.Cage" Collapsed="true">
+    <Position X="7.75" Y="3" Width="1.5" />
+    <AssociationLine Name="CageTPage" Type="System.Windows.Forms.TabPage">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.908" Y="0.611" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="PlacedAnimal" Type="ConsoleApp2.Animal">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-0.046" Y="0.091" Height="0.182" Width="1.089" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>JDQigwgEiMFAMOlAQSSwRHwCJSQGAgImJQgNCOwyDBA=</HashCode>
+      <FileName>Cage.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="CageTPage" />
+      <Property Name="PlacedAnimal" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ConsoleApp2.CagesSystem" Collapsed="true">
+    <Position X="5.25" Y="3" Width="1.5" />
+    <AssociationLine Name="CagesSystemTC" Type="System.Windows.Forms.TabControl">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.028" Y="0.551" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AABgAAAAgFAAAAAACAAAAAAABAAAAgAEIIAAAAAKCAA=</HashCode>
+      <FileName>CagesSystem.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="CagesSystemTC" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="CageList" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Interface Name="ConsoleApp2.IBig">
+    <Position X="0.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IBig.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ConsoleApp2.ISmall" Collapsed="true">
+    <Position X="0.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Interfaces\ISmall.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="ConsoleApp2.Genders" Collapsed="true">
+    <Position X="12.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Enums\Gender.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
