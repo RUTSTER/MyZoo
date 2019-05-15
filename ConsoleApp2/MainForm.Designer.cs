@@ -41,9 +41,7 @@ namespace ConsoleApp2
             this.MoneyLabel = new System.Windows.Forms.Label();
             this.VersionLabel = new System.Windows.Forms.Label();
             this.NewCagePriceLabel = new System.Windows.Forms.Label();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.Lvl = new System.Windows.Forms.Label();
             this.LVLValue = new System.Windows.Forms.Label();
@@ -52,8 +50,9 @@ namespace ConsoleApp2
             this.label5 = new System.Windows.Forms.Label();
             this.Age = new System.Windows.Forms.Label();
             this.Gender = new System.Windows.Forms.Label();
-            this.tabControl1.SuspendLayout();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1.SuspendLayout();
+            this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // BuyCageButton
@@ -226,17 +225,6 @@ namespace ConsoleApp2
             this.NewCagePriceLabel.Text = "$999M";
             this.NewCagePriceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(1, 1);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(699, 449);
-            this.tabControl1.TabIndex = 11;
-            this.tabControl1.Visible = false;
-            // 
             // tabPage1
             // 
             this.tabPage1.BackgroundImage = global::ConsoleApp2.Properties.Resources.SecondBackground;
@@ -256,23 +244,13 @@ namespace ConsoleApp2
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(192, 74);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -283,7 +261,7 @@ namespace ConsoleApp2
             // 
             this.Lvl.Font = new System.Drawing.Font("MV Boli", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lvl.Location = new System.Drawing.Point(495, 22);
-            this.Lvl.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.Lvl.Margin = new System.Windows.Forms.Padding(0);
             this.Lvl.Name = "Lvl";
             this.Lvl.Size = new System.Drawing.Size(71, 31);
             this.Lvl.TabIndex = 1;
@@ -294,7 +272,7 @@ namespace ConsoleApp2
             this.LVLValue.Font = new System.Drawing.Font("MV Boli", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LVLValue.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.LVLValue.Location = new System.Drawing.Point(566, 22);
-            this.LVLValue.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.LVLValue.Margin = new System.Windows.Forms.Padding(0);
             this.LVLValue.Name = "LVLValue";
             this.LVLValue.Size = new System.Drawing.Size(82, 31);
             this.LVLValue.TabIndex = 2;
@@ -304,10 +282,10 @@ namespace ConsoleApp2
             // Profit
             // 
             this.Profit.AutoSize = true;
-            this.Profit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Profit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Profit.Location = new System.Drawing.Point(443, 101);
             this.Profit.Name = "Profit";
-            this.Profit.Size = new System.Drawing.Size(127, 20);
+            this.Profit.Size = new System.Drawing.Size(133, 20);
             this.Profit.TabIndex = 3;
             this.Profit.Text = "PROFIT/second:";
             this.Profit.Click += new System.EventHandler(this.Profit_Click);
@@ -353,6 +331,17 @@ namespace ConsoleApp2
             this.Gender.TabIndex = 9;
             this.Gender.Text = "Gender: F";
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Location = new System.Drawing.Point(1, 1);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(699, 449);
+            this.tabControl1.TabIndex = 11;
+            this.tabControl1.Visible = false;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -377,9 +366,9 @@ namespace ConsoleApp2
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.MainForm_Load);
-            this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -395,10 +384,7 @@ namespace ConsoleApp2
         private Label MoneyLabel;
         private Label VersionLabel;
         private Label NewCagePriceLabel;
-        private TabControl tabControl1;
         private TabPage tabPage1;
-        private TableLayoutPanel tableLayoutPanel1;
-        private TabPage tabPage2;
         private Label Gender;
         private Label Age;
         private Label label5;
@@ -406,5 +392,7 @@ namespace ConsoleApp2
         private Label Profit;
         private Label LVLValue;
         private Label Lvl;
+        private TableLayoutPanel tableLayoutPanel1;
+        private TabControl tabControl1;
     }
 }

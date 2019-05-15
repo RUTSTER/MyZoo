@@ -62,9 +62,12 @@ namespace ConsoleApp2
 
                 LvlupPrice = NewLvlPrice(); // пересчет стоимости повышения уровня
                 CostLvlupLabelUpdate();
+                CostCuringLabelUpdate();
+                CostFeedingLabelUpdate();
                 SetMultiplier();
 
                 LvlValueLabelUpdate();
+                ProfitValueLabelUpdate();
             }         
         }
 
@@ -126,7 +129,7 @@ namespace ConsoleApp2
         private int CalcMaxHelth()
         {
             int LvlFactor = Lvl * HelthPerLvl;
-            int AgeFactor = (int)Math.Pow(Age, 2);
+            int AgeFactor = 1;//(int)Math.Pow(Age, 2);
             int GenderFactor = (Gender == Genders.Male) ? GenderFactor = 3 : GenderFactor = 2;
 
             return MaxHelthBase + LvlFactor + (GenderFactor * AgeFactor * 2);
@@ -186,7 +189,7 @@ namespace ConsoleApp2
         private int CalcMaxSatiety()
         {
             int LvlFactor = Lvl * SatietyPerLvl;
-            int AgeFactor = (int)Math.Pow(Age, 2);
+            int AgeFactor = 1;//(int)Math.Pow(Age, 2);
             int GenderFactor = (Gender == Genders.Male) ? GenderFactor = 2 : GenderFactor = 3;
 
             return MaxSatietyBase + LvlFactor + (GenderFactor * AgeFactor * 2);
@@ -263,7 +266,6 @@ namespace ConsoleApp2
         void SatietyDecrease()
         {
             Satiety-=1;
-            Console.WriteLine($"{satiety} - {maxSatiety}");
         }
 
         void HelthDecrease()
@@ -293,12 +295,12 @@ namespace ConsoleApp2
         void AddMethodsToDel()
         {
             Delegates.ChangeValues += ChangeStats;
-            Delegates.ChangeValues += AddMoneyFromAnimal;
+            Delegates.ChangeValues += AddMoney;
         }
         void RemoveMethodsToDel()
         {
             Delegates.ChangeValues -= ChangeStats;
-            Delegates.ChangeValues -= AddMoneyFromAnimal;
+            Delegates.ChangeValues -= AddMoney;
         }
 
 
@@ -324,9 +326,9 @@ namespace ConsoleApp2
             if (IsAlive == false)
                 return;
 
-            if (Zoo.Money > 100)
+            if (Zoo.Money >= CuringPrice)
             {
-                Zoo.Money -= 100;
+                Zoo.Money -= CuringPrice;
                 Helth += (int)(0.2 * MaxHelth);
             }
             
@@ -339,9 +341,9 @@ namespace ConsoleApp2
             if (IsAlive == false)
                 return;
 
-            if (Zoo.Money > 50)
+            if (Zoo.Money >= FeedingPrice)
             {
-                Zoo.Money -= 50;
+                Zoo.Money -= FeedingPrice;
                 Satiety += (int)(0.2 * MaxSatiety);
             }            
         }
@@ -371,17 +373,42 @@ namespace ConsoleApp2
 
 
         #region Economics
+        protected abstract ulong BaseBuyingPrice { get; }
         protected abstract ulong BuyingPrice { get; }
         protected abstract int ProfitPerLvl { get; }
-        protected abstract float PriceIncreaseModifier { get; }
+        protected abstract float LvlupModifier { get; }
+
+        private ulong CuringPrice
+        {
+            get
+            {
+                return LvlupPrice * 5;
+            }
+        }
+
+        private ulong FeedingPrice
+        {
+            get
+            {
+                return ProfitCalc() * 25;
+            }
+        }
 
         public ulong LvlupPrice;
 
-        public abstract ulong NewLvlPrice();
-
-        void AddMoneyFromAnimal()
+        private ulong NewLvlPrice()
         {
-            Zoo.Money += (ulong)(Lvl * ProfitPerLvl * MultiplierPerLvl);
+            return (ulong)(BaseBuyingPrice * Pow(LvlupModifier, Lvl));
+        }
+
+        void AddMoney()
+        {
+            Zoo.Money += ProfitCalc();
+        }
+
+        ulong ProfitCalc()
+        {
+            return (ulong)(Lvl * ProfitPerLvl * MultiplierPerLvl);
         }
 
         #endregion

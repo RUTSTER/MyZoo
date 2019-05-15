@@ -6,7 +6,6 @@ namespace ConsoleApp2
 {
     partial class Animal
     {
-        //comment
         #region Properties
         protected TabPage SelectedTab;
         #endregion
@@ -343,13 +342,13 @@ namespace ConsoleApp2
         {
             Label ProfitLabel = new Label();
             ProfitLabel.Parent = SelectedTab;
-            ProfitLabel.Font = new Font("Microsoft Sans Serif", 12.00f, FontStyle.Regular);
+            ProfitLabel.Font = new Font("Microsoft Sans Serif", 12.75f, FontStyle.Regular);
             ProfitLabel.BackColor = Color.Transparent;
             ProfitLabel.AutoSize = false;
-            ProfitLabel.Size = new Size(71, 31);
-            ProfitLabel.TextAlign = ContentAlignment.MiddleCenter;
+            ProfitLabel.Size = new Size(137, 20);
+            ProfitLabel.TextAlign = ContentAlignment.MiddleLeft;
             ProfitLabel.Text = $"PROFIT/second:";
-            ProfitLabel.Location = new Point(510, 60);
+            ProfitLabel.Location = new Point(445, 60);
         }
         #endregion
 
@@ -359,24 +358,19 @@ namespace ConsoleApp2
         {
             ProfitValueLabel = new Label();
             ProfitValueLabel.Parent = SelectedTab;
-            #region CustomFontStyle
-            FontStyle CustomFontStyle = FontStyle.Regular;
-            CustomFontStyle |= FontStyle.Bold;
-            CustomFontStyle |= FontStyle.Italic;
-            #endregion
-            ProfitValueLabel.Font = new Font("MV Boli", 18f, CustomFontStyle);
+            ProfitValueLabel.Font = new Font("Microsoft Sans Serif", 12.00f, FontStyle.Regular);
             ProfitValueLabel.BackColor = Color.Transparent;
             ProfitValueLabel.AutoSize = false;
-            ProfitValueLabel.Size = new Size(82, 31);
+            ProfitValueLabel.Size = new Size(58, 20);
             ProfitValueLabel.TextAlign = ContentAlignment.MiddleLeft;
-            ProfitValueLabel.Text = $"{Zoo.ConvertMoney(1234)}";
+            ProfitValueLabel.Text = $"{Zoo.ConvertMoney(ProfitCalc())}";
             ProfitValueLabel.Location = new Point(580, 60);
         }
 
         public void ProfitValueLabelUpdate()
         {
-            LvlValueLabel.Invoke(new Action(() =>
-            LvlValueLabel.Text = $"{Lvl}"));
+            ProfitValueLabel.Invoke(new Action(() =>
+            ProfitValueLabel.Text = $"{ProfitCalc()}"));
         }
         #endregion
 
@@ -391,7 +385,7 @@ namespace ConsoleApp2
             NameLabel.Size = new Size(170, 15);
             NameLabel.TextAlign = ContentAlignment.MiddleLeft;
             NameLabel.Text = $"Name: {Name}";
-            NameLabel.Location = new Point(20, 370);
+            NameLabel.Location = new Point(460, 170);
         }
         #endregion
 
@@ -406,7 +400,7 @@ namespace ConsoleApp2
             AgeLabel.Size = new Size(48, 15);
             AgeLabel.TextAlign = ContentAlignment.MiddleCenter;
             AgeLabel.Text = $"Age: {Age}";
-            AgeLabel.Location = new Point(196, 370);
+            AgeLabel.Location = new Point(460, 270);
         }
         #endregion
 
@@ -430,7 +424,7 @@ namespace ConsoleApp2
             GenderLabel.Size = new Size(64, 15);
             GenderLabel.TextAlign = ContentAlignment.MiddleLeft;
             GenderLabel.Text = $"Gender: {GenderValue()}";
-            GenderLabel.Location = new Point(355, 370);
+            GenderLabel.Location = new Point(460, 370);
         }
         #endregion
 
@@ -456,9 +450,10 @@ namespace ConsoleApp2
         #endregion
 
         #region CostCuringLabel
+        Label CostCuringLabel;
         private void CostCuringLabelDrow()
         {
-            Label CostCuringLabel = new Label();
+            CostCuringLabel = new Label();
             CostCuringLabel.Parent = SelectedTab;
             CostCuringLabel.Font = new Font("Arial", 9.75f, FontStyle.Bold);
             CostCuringLabel.BackColor = Color.Transparent;
@@ -471,14 +466,15 @@ namespace ConsoleApp2
 
         private void CostCuringLabelUpdate()
         {
-            CostLvlupLabel.Text = Zoo.ConvertMoney(LvlupPrice);
+            CostCuringLabel.Text = Zoo.ConvertMoney(CuringPrice);
         }
         #endregion
 
         #region CostFeedingLabel
+        Label CostFeedingLabel;
         private void CostFeedingLabelDrow()
         {
-            Label CostFeedingLabel = new Label();
+            CostFeedingLabel = new Label();
             CostFeedingLabel.Parent = SelectedTab;
             CostFeedingLabel.Font = new Font("Arial", 9.75f, FontStyle.Bold);
             CostFeedingLabel.BackColor = Color.Transparent;
@@ -491,7 +487,7 @@ namespace ConsoleApp2
 
         private void CostFeedingLabelUpdate()
         {
-            CostLvlupLabel.Text = Zoo.ConvertMoney(LvlupPrice);
+            CostFeedingLabel.Text = Zoo.ConvertMoney(FeedingPrice);
         }
         #endregion
 

@@ -14,15 +14,16 @@ namespace ConsoleApp2
         private static int CountThisType = 0;
         private static int CountThisTypeAlive = 0;
 
-        private const float Multiplier = 1.5f;
+        private const float BuyingModifier = 3f;
 
-        private const ulong BaseBuyingPrice = 4;
-        public static ulong BuyingPriceStatic = BaseBuyingPrice;
+        private const ulong BaseBuyingPriceConst = 4;
+        public static ulong BuyingPriceStatic = BaseBuyingPriceConst;
 
+        protected override ulong BaseBuyingPrice => BaseBuyingPriceConst;
         protected override ulong BuyingPrice => BuyingPriceStatic;
 
         protected override int ProfitPerLvl { get; } = 1;
-        protected override float PriceIncreaseModifier { get; } = 1.07f;    
+        protected override float LvlupModifier { get; } = 1.07f;    
         
         protected override int MaxHelthBase { get; } = 100;
         protected override int HelthPerLvl { get; } = 2;
@@ -49,11 +50,6 @@ namespace ConsoleApp2
             PicBox.BackgroundImage = Properties.Resources.RaccoonMainPic;
         }
 
-        public override ulong NewLvlPrice()
-        {
-            return (ulong)(BaseBuyingPrice * Pow(PriceIncreaseModifier, Lvl));
-        }
-
         public void TryToEscape()
         {
         }
@@ -61,12 +57,9 @@ namespace ConsoleApp2
         public static void ChangeBuyingPrice()
         {
             BuyingPriceStatic = (ulong)
-                (BaseBuyingPrice *
-                Math.Pow(Multiplier, CountThisTypeAlive) *
-                (1 +
-                (3 * CountThisType) +
-                (2 * CountAllAnimalsAlive) +
-                CountAllAnimals));
+                (BaseBuyingPriceConst *
+                Pow(BuyingModifier, CountThisTypeAlive) *
+                (1 + 3 * CountThisType));
         }
 
         protected override void AnimalTypeLabelSettings(Label AnimalTypeLabel)

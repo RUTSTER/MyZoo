@@ -47,15 +47,12 @@ namespace ConsoleApp2
             CagesSystemTC.TabPages.Add(TPage);
         }
 
-        public Cage SelectedCage()
+        private Cage SelectedCage()
         {
-            Console.WriteLine("переделать!");
-            if (IsEmpty())
-                throw new Exception();
             return CageList[SelectedIndex()];
         }
 
-        public bool IsEmpty()
+        private bool IsEmpty()
         {
             if (CageList.Count == 0)
                 return true;

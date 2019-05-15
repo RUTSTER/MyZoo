@@ -14,31 +14,22 @@ namespace ConsoleApp2
         private static int CountThisType = 0;
         private static int CountThisTypeAlive = 0;
 
-        private const float Multiplier = 1.5f;
+        private const float BuyingModifier = 3f;
 
-        private const ulong BaseBuyingPrice = 4;
-        public static ulong BuyingPriceStatic = BaseBuyingPrice;
+        private const ulong BaseBuyingPriceConst = 25798901760;
+        public static ulong BuyingPriceStatic = BaseBuyingPriceConst;
+
+        protected override ulong BaseBuyingPrice => BaseBuyingPriceConst;
         protected override ulong BuyingPrice => BuyingPriceStatic;
 
-        public static void ChangeBuyingPrice()
-        {
-            BuyingPriceStatic = (ulong)
-                (BaseBuyingPrice *
-                Math.Pow(Multiplier, CountThisTypeAlive) *
-                (1 +
-                (3 * CountThisType) +
-                (2 * CountAllAnimalsAlive) +
-                CountAllAnimals));
-        }
 
-
-        protected override int ProfitPerLvl { get; } = 500;
-        protected override float PriceIncreaseModifier { get; } = 1.07f;
+        protected override int ProfitPerLvl { get; } = 800000;
+        protected override float LvlupModifier { get; } = 1.07f;
 
         protected override int MaxHelthBase { get; } = 1000;
         protected override int HelthPerLvl { get; } = 10;
-        protected override int MaxSatietyBase { get; } = 100;
-        protected override int SatietyPerLvl { get; } = 2;
+        protected override int MaxSatietyBase { get; } = 500;
+        protected override int SatietyPerLvl { get; } = 10;
         #endregion
 
 
@@ -60,9 +51,12 @@ namespace ConsoleApp2
             PicBox.BackgroundImage = Properties.Resources.TigerMainPic;
         }
 
-        public override ulong NewLvlPrice()
+        public static void ChangeBuyingPrice()
         {
-            return (ulong)(BaseBuyingPrice * Pow(PriceIncreaseModifier, Lvl));
+            BuyingPriceStatic = (ulong)
+                (BaseBuyingPriceConst *
+                Pow(BuyingModifier, CountThisTypeAlive) *
+                (1 + 3 * CountThisType));
         }
 
         protected override void AnimalTypeLabelSettings(Label AnimalTypeLabel)

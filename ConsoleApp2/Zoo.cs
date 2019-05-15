@@ -45,19 +45,6 @@ namespace ConsoleApp2
             Cages = new CagesSystem(MainFormRef, Delegates);
         }
 
-        public void FeedSelectedAnimal()
-        {
-            try
-            {
-                Cages.SelectedCage().FeedSelectedAnimal();
-            }
-            catch (Exception) 
-            {
-                Console.WriteLine("catch (Zoo.FeedSelectedAnimal())");
-                return;
-            }
-        }
-
         #region Actions
         public void Lvlup() => Cages.Lvlup();
 
@@ -93,7 +80,7 @@ namespace ConsoleApp2
         #region Money
 
         #region Property
-        private static ulong money = 5000000;
+        private static ulong money = 5;
         public static ulong Money
         {
             get
